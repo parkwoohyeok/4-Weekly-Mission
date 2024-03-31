@@ -1,7 +1,4 @@
 import styles from "./FolderListCtrl.module.css";
-import deleteImg from "assets/delete.svg";
-import penImg from "assets/pen.svg";
-import shareImg from "assets/share.svg";
 import { MouseEvent } from "react";
 
 interface Props {
@@ -24,19 +21,19 @@ const FolderListCtrl = ({ folderName, setModal } :Props) => {
         ) : (
           <div className={styles.controlMenu}>
             <div className={styles.controlMenuItem}>
-              <img src={shareImg} alt="shareIconImage" />
+              <img src="/share.svg" alt="shareIconImage" />
               <button value="shareFolder" onClick={handleModalClick}>
                 공유
               </button>
             </div>
             <div className={styles.controlMenuItem}>
-              <img src={penImg} alt="penIconImage" />
+              <img src="/pen.svg" alt="penIconImage" />
               <button value="changeFolderName" onClick={handleModalClick}>
                 이름 변경
               </button>
             </div>
             <div className={styles.controlMenuItem}>
-              <img src={deleteImg} alt="deleteIconImage" />
+              <img src="/delete.svg" alt="deleteIconImage" />
               <button value="deleteFolder" onClick={handleModalClick}>
                 삭제
               </button>

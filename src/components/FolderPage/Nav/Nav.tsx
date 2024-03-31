@@ -1,6 +1,5 @@
 import { GetUserInfoTest } from "api/GetUserInfo";
 import useAsync from "hook/useAsync";
-import logo from "assets/header-logo.svg";
 import styles from "./Nav.module.css";
 
 const { useEffect, useState } = require("react");
@@ -33,7 +32,7 @@ const Nav = () => {
         <div className={styles["navContainer"]}>
           <div className={styles["navLogo"]}>
             <a href="/">
-              <img src={logo} alt="nav로고" />
+              <img src="/header-logo.svg" alt="nav로고" />
             </a>
           </div>
           {user && Object.keys(user).length > 0 ? (

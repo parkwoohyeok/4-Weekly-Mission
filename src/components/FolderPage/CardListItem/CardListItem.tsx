@@ -1,8 +1,5 @@
 import style from "./CardListItem.module.css";
 import { getTimeAgo, formatDate } from "util/time";
-import noImg from "assets/noImg.png";
-import starImg from "assets/Star 1.svg";
-import kebabImg from "assets/kebab.svg";
 import {useEffect, useRef, useState } from "react";
 
 interface Props{
@@ -10,7 +7,7 @@ interface Props{
     id: number;
     url: string;
     created_at: string;
-    image_source :string;
+    image_source :any;
     title:string;
     description:string;
 };
@@ -73,10 +70,10 @@ function CardListItem({ link, setModal, setLink } :Props) {
     >
       <div className={style.link}>
         <div className={style["link-cover"]}>
-          <img src={link.image_source || noImg} alt="card-cover" />:
+          <img  src={link.image_source || "/noImg.png"} alt="card-cover" />:
         </div>
         <button className={style["star-btn"]} onClick={handleStarBtnClick}>
-          <img src={starImg} alt="즐겨찾기 이미지" />
+          <img src="/Star 1.svg" alt="즐겨찾기 이미지" />
         </button>
         <div className={style["link-contents"]}>
           <div className={style["content-Header"]}>
@@ -87,7 +84,7 @@ function CardListItem({ link, setModal, setLink } :Props) {
               className={style["kebab-btn"]}
               onClick={handleKebabBtnClick}
             >
-              <img src={kebabImg} alt="케밥이미지" />
+              <img src="/kebab.svg" alt="케밥이미지" />
             </button>
           </div>
           <h2 className={style["link-title"]}>{link.title || "NAN"}</h2>

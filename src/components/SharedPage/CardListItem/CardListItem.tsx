@@ -1,7 +1,5 @@
 import style from "./CardListItem.module.css";
 import { getTimeAgo, formatDate } from "util/time";
-import noImg from "assets/noImg.png";
-import starImg from "assets/Star 1.svg";
 
 interface Props {
   link: {
@@ -19,10 +17,10 @@ function CardListItem({ link } : Props) {
     <a href={link.url} target="_blank" className={style["l_col"]}  rel="noreferrer">
       <div className={style.link}>
         <div className={style["link-cover"]}>
-          <img src={link.imageSource || noImg} alt="card-cover" />:
+          <img src={link.imageSource || "/noImg.png"} alt="card-cover" />:
         </div>
         <button className={style["star-btn"]}>
-          <img src={starImg}  alt="즐겨찾기 이미지"/>
+          <img src="/Star 1.svg"  alt="즐겨찾기 이미지"/>
         </button>
         <div className={style["link-contents"]}>
           <div className={style["content-Header"]}>

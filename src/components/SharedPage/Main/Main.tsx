@@ -2,6 +2,7 @@ import CardList from "components/SharedPage/CardList/CardList";
 import SearchInput from "components/SharedPage/SearchInput/SearchInput";
 import { ChangeEvent } from "react";
 
+
 interface Props {
   selectedModal: string;
   selectedId: string;

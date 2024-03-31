@@ -1,5 +1,7 @@
 import CardListItem from "components/SharedPage/CardListItem/CardListItem";
 import styles from "./CardList.module.css";
+import { useEffect } from "react";
+
 
 interface Props {
   links: [
@@ -17,7 +19,7 @@ interface Props {
 }
 
 function CardList({ links } : Props) {
-  document.addEventListener("DOMContentLoaded", function () {
+ useEffect(()=>{ document.addEventListener("DOMContentLoaded", function () {
     var links = document.querySelectorAll(".link");
     links.forEach(function (link) {
       link.addEventListener("click", function (event) {
@@ -26,7 +28,7 @@ function CardList({ links } : Props) {
         }
       });
     });
-  });
+  })},[])
   return (
     <div className={styles["card-container"]}>
       <ul className={styles["grid"]}>

@@ -35,7 +35,7 @@ function Folder() {
       <Main
         search={search}
         folderInfo={folderInfo}
-        onChange={handleSearchChange}
+        handleSearchChange={handleSearchChange}
         loadingError={loadingError}
         handleCloseClick={handleCloseClick}
       />

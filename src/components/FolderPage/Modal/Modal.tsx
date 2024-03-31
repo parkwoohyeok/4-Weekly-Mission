@@ -2,9 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Modal.module.css";
 import { FacebookShareButton, FacebookIcon } from "react-share";
 import { useScript } from "hook/useScripts";
-import close from "assets/close.png";
-import kakao from "assets/Kakao.png";
-import checked from "assets/check.svg";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 interface Props {
@@ -89,7 +86,7 @@ function Modal({
         <input placeholder={folderName}></input>
         <button className={styles.modalBtn_blue}>변경하기</button>
         <button className={styles.closeBtn} onClick={handleCloseClick}>
-          <img src={close} alt="닫힘버튼" />
+          <img src="/close.png" alt="닫힘버튼" />
         </button>
       </div>
       <div
@@ -102,7 +99,7 @@ function Modal({
         <h3>{folderName}</h3>
         <div className={styles.btns}>
           <button className={styles.kakaoBtn} onClick={handleKakaoButton}>
-            <img className={styles.kakao} src={kakao} alt="카카오" />
+            <img className={styles.kakao} src="/Kakao.png" alt="카카오" />
           </button>
 
           <FacebookShareButton url={`${currentUrl}${selectedId}`}>
@@ -117,7 +114,7 @@ function Modal({
           </CopyToClipboard>
         </div>
         <button className={styles.closeBtn} onClick={handleCloseClick}>
-          <img src={close} alt="닫힘버튼" />
+          <img src="/close.png" alt="닫힘버튼" />
         </button>
       </div>
       <div
@@ -130,7 +127,7 @@ function Modal({
         <h3>{folderName}</h3>
         <button className={styles.modalBtn_red}>삭제하기</button>
         <button className={styles.closeBtn} onClick={handleCloseClick}>
-          <img src={close} alt="닫힘버튼" />
+          <img src="/close.png" alt="닫힘버튼" />
         </button>
       </div>
       <div
@@ -143,7 +140,7 @@ function Modal({
         <input placeholder="내용입력"></input>
         <button className={styles.modalBtn_blue}>추가하기</button>
         <button className={styles.closeBtn} onClick={handleCloseClick}>
-          <img src={close} alt="닫힘버튼" />
+          <img src="/close.png" alt="닫힘버튼" />
         </button>
       </div>
       <div
@@ -156,7 +153,7 @@ function Modal({
         <h3>{selectedLink}</h3>
         <button className={styles.modalBtn_red}>삭제하기</button>
         <button className={styles.closeBtn} onClick={handleCloseClick}>
-          <img src={close} alt="닫힘버튼" />
+          <img src="/close.png" alt="닫힘버튼" />
         </button>
       </div>
       <div
@@ -184,7 +181,7 @@ function Modal({
                 </h2>
                 <img
                   className={`${styles["checked"]}`}
-                  src={checked}
+                  src="/check.svg"
                   alt="체크표시"
                 />
               </button>
@@ -193,7 +190,7 @@ function Modal({
         </ul>
         <button className={styles.modalBtn_blue}>추가하기</button>
         <button className={styles.closeBtn} onClick={handleCloseClick}>
-          <img src={close} alt="닫힘버튼" />
+          <img src="/close.png" alt="닫힘버튼" />
         </button>
       </div>
     </>

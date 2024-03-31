@@ -1,7 +1,6 @@
-import searchIcon from "assets/Search.png";
 import styles from "./SearchInput.module.css";
 import { ChangeEvent } from "react";
-import close from "assets/close.png";
+
 
 interface Props {
   loadingError: {
@@ -19,7 +18,7 @@ const SearchInput = ({ loadingError, search, handleSearchChange, handleCloseClic
       <div className={styles["wrapper"]}>
         <div className={styles["search-section"]}>
           <div className={styles["search-inputbox"]}>
-            <img src={searchIcon} alt="검색 아이콘" />
+            <img src="/Search.png" alt="검색 아이콘" />
             <input
               type="text"
               name="searchInput"
@@ -31,7 +30,7 @@ const SearchInput = ({ loadingError, search, handleSearchChange, handleCloseClic
         </div>
         {loadingError && <div>{loadingError.message}</div>}
                 <button className={styles.closeBtn} onClick={handleCloseClick}>
-          <img src={close} alt="닫힘버튼" />
+          <img src="/close.png" alt="닫힘버튼" />
         </button>
       </div>
     </>
