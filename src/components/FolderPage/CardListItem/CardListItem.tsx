@@ -1,6 +1,7 @@
 import style from "./CardListItem.module.css";
 import { getTimeAgo, formatDate } from "util/time";
-import {useEffect, useRef, useState } from "react";
+import {  SyntheticEvent, useEffect, useRef, useState } from "react";
+import noImg from "../../../../public/noImg.png"
 
 interface Props{
   link: {
@@ -61,6 +62,14 @@ function CardListItem({ link, setModal, setLink } :Props) {
     }
   };
 
+
+  function onErrorFn(e: SyntheticEvent<HTMLImageElement>) {	
+    (e.target as any).onError = null;
+    (e.target as any).src = "/noImg.png"
+  }
+
+  	
+
   return (
     <a
       href={link.url}
@@ -70,7 +79,7 @@ function CardListItem({ link, setModal, setLink } :Props) {
     >
       <div className={style.link}>
         <div className={style["link-cover"]}>
-          <img  src={link.image_source || "/noImg.png"} alt="card-cover" />:
+         <img src={link.image_source} onError={onErrorFn} alt="디폴트이미지" />
         </div>
         <button className={style["star-btn"]} onClick={handleStarBtnClick}>
           <img src="/Star 1.svg" alt="즐겨찾기 이미지" />
