@@ -1,28 +1,27 @@
 import style from "./CardListItem.module.css";
 import { getTimeAgo, formatDate } from "util/time";
-import {  SyntheticEvent, useEffect, useRef, useState } from "react";
-import noImg from "../../../../public/noImg.png"
+import { SyntheticEvent, useEffect, useRef, useState } from "react";
+import noImg from "../../../../public/noImg.png";
 
-interface Props{
+interface Props {
   link: {
     id: number;
     url: string;
     created_at: string;
-    image_source :any;
-    title:string;
-    description:string;
-};
+    image_source: any;
+    title: string;
+    description: string;
+  };
   setModal: (value: string) => void;
-   setLink: (link: string) => void;
+  setLink: (link: string) => void;
 }
 
-function CardListItem({ link, setModal, setLink } :Props) {
+function CardListItem({ link, setModal, setLink }: Props) {
   const [btnClicked, setBtnClicked] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleFocus(e: MouseEvent) {
-      
       if (searchRef.current && !searchRef.current.contains(e.target as any)) {
         setBtnClicked(false);
       }
@@ -34,11 +33,11 @@ function CardListItem({ link, setModal, setLink } :Props) {
     };
   }, [searchRef]);
 
-  const handleStarBtnClick = (event : React.MouseEvent) => {
+  const handleStarBtnClick = (event: React.MouseEvent) => {
     event.preventDefault();
   };
 
-  const handleKebabBtnClick = (event :React.MouseEvent) => {
+  const handleKebabBtnClick = (event: React.MouseEvent) => {
     event.preventDefault();
     if (!btnClicked) {
       setBtnClicked(true);
@@ -47,11 +46,11 @@ function CardListItem({ link, setModal, setLink } :Props) {
     }
   };
 
-  const handleKebabListClick = (event :React.MouseEvent) => {
+  const handleKebabListClick = (event: React.MouseEvent) => {
     event.preventDefault();
   };
 
-  const handleListClick = (e :React.MouseEvent) => {
+  const handleListClick = (e: React.MouseEvent) => {
     const value = (e.target as HTMLButtonElement).name;
     const seletedLink = (e.target as HTMLButtonElement).value;
 
@@ -62,13 +61,10 @@ function CardListItem({ link, setModal, setLink } :Props) {
     }
   };
 
-
-  function onErrorFn(e: SyntheticEvent<HTMLImageElement>) {	
+  function onErrorFn(e: SyntheticEvent<HTMLImageElement>) {
     (e.target as any).onError = null;
-    (e.target as any).src = "/noImg.png"
+    (e.target as any).src = "/noImg.png";
   }
-
-  	
 
   return (
     <a
@@ -79,10 +75,10 @@ function CardListItem({ link, setModal, setLink } :Props) {
     >
       <div className={style.link}>
         <div className={style["link-cover"]}>
-         <img src={link.image_source} onError={onErrorFn} alt="디폴트이미지" />
+          <img src={link.image_source} onError={onErrorFn} alt="디폴트이미지" />
         </div>
         <button className={style["star-btn"]} onClick={handleStarBtnClick}>
-          <img src="/Star 1.svg" alt="즐겨찾기 이미지" />
+          <img src="/Star1.svg" alt="즐겨찾기 이미지" />
         </button>
         <div className={style["link-contents"]}>
           <div className={style["content-Header"]}>

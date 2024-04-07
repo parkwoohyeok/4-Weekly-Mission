@@ -2,14 +2,13 @@ import { GetUserInfoTest } from "api/GetUserInfo";
 import useAsync from "hook/useAsync";
 import styles from "./Nav.module.css";
 import Link from "next/link";
-
 const { useEffect, useState } = require("react");
 
-interface Props{
+interface Props {
   data: [];
   error?: {
     message: string;
-  }
+  };
 }
 
 const Nav = () => {
@@ -18,14 +17,12 @@ const Nav = () => {
 
   const loadUserInfo = async (data: Props) => {
     const userData = await asyncedGetUser(data);
-    setUser(userData.data[0]);
+    setUser(userData?.data[0]);
   };
 
-  useEffect((data:Props) => {
+  useEffect((data: Props) => {
     loadUserInfo(data);
   }, []);
-
-
 
   return (
     <>

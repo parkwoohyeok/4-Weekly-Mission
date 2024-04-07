@@ -6,26 +6,33 @@ import styles from "./Main.module.css";
 import Modal from "../Modal/Modal";
 import { ChangeEvent, useState } from "react";
 
-
 interface Props {
   selectedModal: string;
   selectedId: string;
   selectedName: string;
-  links: [{
-    id: number;
-    url: string;
-    created_at: string;
-    image_source: string;
-    title: string;
-    description: string;
-  }];
-  onSelectedFolder:({ name, id }: { name: string | null, id: number | string }) => void;
+  links: [
+    {
+      id: number;
+      url: string;
+      created_at: string;
+      image_source: string;
+      title: string;
+      description: string;
+    }
+  ];
+  onSelectedFolder: ({
+    name,
+    id,
+  }: {
+    name: string | null;
+    id: number | string;
+  }) => void;
   loadingError: {
     message: string;
-  }
+  };
   search: string;
-  folderListInfo: [{ id: string; name: string; link:{count : number}}];
-  handleSearchChange: (e : ChangeEvent) => void;
+  folderListInfo: [{ id: string; name: string; link: { count: number } }];
+  handleSearchChange: (e: ChangeEvent) => void;
   setModal: (value: string) => void;
   handleCloseClick: (e: React.MouseEvent) => void;
 }
@@ -40,13 +47,12 @@ function Main({
   folderListInfo,
   handleSearchChange,
   setModal,
-  handleCloseClick
-} : Props) {
-  const [selectedLink, setSeletedLink] = useState("");
-  const setLink = (link : string) => {
-    setSeletedLink(link);
+  handleCloseClick,
+}: Props) {
+  const [selectedLink, setSelectedLink] = useState("");
+  const setLink = (link: string) => {
+    setSelectedLink(link);
   };
-
 
   return (
     <>
@@ -73,7 +79,7 @@ function Main({
         handleSearchChange={handleSearchChange}
         handleCloseClick={handleCloseClick}
       />
-      {links[0] ? (
+      {links.length ? (
         <CardList setLink={setLink} links={links} setModal={setModal} />
       ) : (
         <div className={styles["noSavedLink"]}>저장된 링크가 없습니다.</div>

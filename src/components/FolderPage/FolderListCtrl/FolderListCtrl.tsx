@@ -6,8 +6,8 @@ interface Props {
   setModal: (value: string) => void;
 }
 
-const FolderListCtrl = ({ folderName, setModal } :Props) => {
-  const handleModalClick = (e : MouseEvent) => {
+const FolderListCtrl = ({ folderName, setModal }: Props) => {
+  const handleModalClick = (e: MouseEvent) => {
     const value = (e.target as HTMLButtonElement).value;
     setModal(value);
   };
@@ -16,9 +16,7 @@ const FolderListCtrl = ({ folderName, setModal } :Props) => {
     <div className={styles["wrapper"]}>
       <div className={styles.container}>
         <div className={styles.folderName}>{folderName}</div>
-        {folderName === "전체" ? (
-          <></>
-        ) : (
+        {folderName === "전체" || (
           <div className={styles.controlMenu}>
             <div className={styles.controlMenuItem}>
               <img src="/share.svg" alt="shareIconImage" />

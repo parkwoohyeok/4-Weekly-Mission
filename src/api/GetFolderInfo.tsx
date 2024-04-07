@@ -1,12 +1,10 @@
 async function GetFolderInfo() {
-  const response = await fetch(
-    "https://bootcamp-api.codeit.kr/api/sample/folder"
-  );
+  const BASE_URL = "https://bootcamp-api.codeit.kr/api/sample/folder";
+  const response = await fetch(BASE_URL);
   if (!response.ok) {
     throw new Error("폴더 정보를 불러오는데 실패했습니다");
   }
-  const body = await response.json();
-  return body;
+  return response.json();
 }
 
 export default GetFolderInfo;

@@ -3,24 +3,29 @@ import { getTimeAgo, formatDate } from "util/time";
 
 interface Props {
   link: {
-    id: number,
-    url: string,
-    createdAt: string,
-    imageSource: string,
-    title: string,
-    description: string,
+    id: number;
+    url: string;
+    createdAt: string;
+    imageSource: string;
+    title: string;
+    description: string;
   };
 }
 
-function CardListItem({ link } : Props) {
+function CardListItem({ link }: Props) {
   return (
-    <a href={link.url} target="_blank" className={style["l_col"]}  rel="noreferrer">
+    <a
+      href={link.url}
+      target="_blank"
+      className={style["l_col"]}
+      rel="noreferrer"
+    >
       <div className={style.link}>
         <div className={style["link-cover"]}>
           <img src={link.imageSource || "/noImg.png"} alt="card-cover" />:
         </div>
         <button className={style["star-btn"]}>
-          <img src="/Star 1.svg"  alt="즐겨찾기 이미지"/>
+          <img src="/Star1.svg" alt="즐겨찾기 이미지" />
         </button>
         <div className={style["link-contents"]}>
           <div className={style["content-Header"]}>

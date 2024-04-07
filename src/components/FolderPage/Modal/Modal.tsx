@@ -8,13 +8,15 @@ interface Props {
   selectedModal: string;
   selectedId: string;
   setModal: (value: string) => void;
-  folders: [{
-    id: string;
-    name: string;
-    link: {
-      count: number;
+  folders: [
+    {
+      id: string;
+      name: string;
+      link: {
+        count: number;
+      };
     }
-  }];
+  ];
   folderName: string;
   selectedLink: string;
 }
@@ -26,12 +28,12 @@ function Modal({
   folderName,
   selectedLink,
   selectedId,
-}:Props) {
+}: Props) {
   const [listClicked, setListClicked] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleFocus(e : MouseEvent) {
+    function handleFocus(e: MouseEvent) {
       if (searchRef.current && !searchRef.current.contains(e.target as any)) {
         setModal("");
       }
@@ -61,7 +63,7 @@ function Modal({
       // 중복 initialization 방지
       if (!window.Kakao.isInitialized()) {
         // 두번째 step 에서 가져온 javascript key 를 이용하여 initialize
-        window.Kakao.init("077cb07b3b0e7c5981097690a6942000");
+        window.Kakao.init(`${process.env.NEXT_PUBLIC_KAKAO_KEY}`);
       }
     }
   }, [status]);
