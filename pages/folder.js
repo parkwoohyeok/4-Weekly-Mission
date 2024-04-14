@@ -3,7 +3,7 @@ import Header from "components/FolderPage/Header/Header";
 import Main from "components/FolderPage/Main/Main";
 import Nav from "components/FolderPage/Nav/Nav";
 import { GetUserFolder, GetLinks } from "api/GetUserFolder";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 
 function Folder() {
   const [search, setSerch] = useState("");
@@ -125,18 +125,18 @@ function Folder() {
       <Nav />
       <Header headerInView={headerInView} inView={inView} />
       <div ref={headerRef}></div>
-      <Main
-        search={search}
-        folderListInfo={folderListInfo}
-        selectedId={selectedId}
-        selectedName={selectedName}
-        links={filtered}
-        selectedModal={selectedModal}
-        onSelectedFolder={handleSelectedFolder}
-        handleSearchChange={handleSearchChange}
-        setModal={setModal}
-        handleCloseClick={handleCloseClick}
-      />
+        <Main
+          search={search}
+          folderListInfo={folderListInfo}
+          selectedId={selectedId}
+          selectedName={selectedName}
+          links={filtered}
+          selectedModal={selectedModal}
+          onSelectedFolder={handleSelectedFolder}
+          handleSearchChange={handleSearchChange}
+          setModal={setModal}
+          handleCloseClick={handleCloseClick}
+        />
       <div ref={footerRef}></div>
       <Footer />
     </>

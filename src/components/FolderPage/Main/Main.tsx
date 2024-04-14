@@ -4,7 +4,7 @@ import SearchInput from "components/FolderPage/SearchInput/SearchInput";
 import FolderListCtrl from "components/FolderPage/FolderListCtrl/FolderListCtrl";
 import styles from "./Main.module.css";
 import Modal from "../Modal/Modal";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, Suspense, useState } from "react";
 
 interface Props {
   selectedModal: string;
@@ -64,6 +64,7 @@ function Main({
         folders={folderListInfo}
         selectedId={selectedId}
       />
+
       {folderListInfo && (
         <FolderList
           onSelectedFolder={onSelectedFolder}
@@ -72,7 +73,9 @@ function Main({
           setModal={setModal}
         />
       )}
-      <FolderListCtrl folderName={selectedName} setModal={setModal} />
+
+      
+        <FolderListCtrl folderName={selectedName} setModal={setModal} />
       <SearchInput
         loadingError={loadingError}
         search={search}

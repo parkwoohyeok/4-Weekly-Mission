@@ -1,28 +1,41 @@
 import styles from "./FolderListItem.module.css";
-import { MouseEvent } from "react";
-
+import { MouseEvent, Suspense } from "react";
 
 interface Props {
-  folders: [{
-    id: string;
-    name: string;
-  }];
-  selectedId:  string;
-  onSelectedFolder:({ name, id }: {name: string | null, id: number|string }) => void
+  folders: [
+    {
+      id: string;
+      name: string;
+    }
+  ];
+  selectedId: string;
+  onSelectedFolder: ({
+    name,
+    id,
+  }: {
+    name: string | null;
+    id: number | string;
+  }) => void;
   setModal: (value: string) => void;
 }
 
-
-function FolderListItem({ folders, selectedId, onSelectedFolder, setModal } : Props) {
-  const handleClick = (e : MouseEvent<HTMLSpanElement>) => {
-    onSelectedFolder({ name: (e.currentTarget as HTMLSpanElement).textContent, id: (e.currentTarget as HTMLSpanElement).id });
+function FolderListItem({
+  folders,
+  selectedId,
+  onSelectedFolder,
+  setModal,
+}: Props) {
+  const handleClick = (e: MouseEvent<HTMLSpanElement>) => {
+    onSelectedFolder({
+      name: (e.currentTarget as HTMLSpanElement).textContent,
+      id: (e.currentTarget as HTMLSpanElement).id,
+    });
   };
 
-  const handleModalClick = (e : MouseEvent) => {
+  const handleModalClick = (e: MouseEvent) => {
     const value = (e.target as HTMLButtonElement).value;
     setModal(value);
   };
-
 
   return (
     <div className={styles["wrapper"]}>
